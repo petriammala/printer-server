@@ -1,0 +1,15 @@
+version: '3'
+services:
+  cups:
+    container_name: printer-server
+    image: ydkn/cups:latest
+    restart: always
+    privileged: true
+    working_dir: /tmp
+    environment:
+      ADMIN_PASSWORD: <your admin password>
+    ports:
+      - '631:631'
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - /run/dbus:/run/dbus
